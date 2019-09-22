@@ -6,6 +6,9 @@ const jwt = require('jsonwebtoken');
 const keys = require('../../config/keys');
 const passport = require('passport');
 
+//Validators
+const validateRegisterInput = require('../../validation/register');
+
 //Load user model
 const user = require('../../models/User');
 
@@ -21,6 +24,13 @@ router.get('/test', (req, res) => res.json({
 // @desc   Register users
 // @access Public
 router.post('/register', (req, res) => {
+
+    const {errors, isValid} = validateRegisterInput(req.body);
+
+    if(!isValid) {
+        return res.status(400).json(errors);
+    }
+
     user.findOne({email: req.body.email}).then(user => {
         if(user) {
             res.status(400).json({email: 'Email already exists'});
