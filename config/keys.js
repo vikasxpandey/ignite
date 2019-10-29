@@ -1,4 +1,4 @@
 module.exports = {
-  mongoURI: '',      // Mongo URI
-  secretOrKey: ''    // Mongo Secret
+  mongoURI: 'mongodb+srv://vikas:vikas@mernconnect-q9aqk.mongodb.net/test?retryWrites=true&w=majority',      // Mongo URI
+  secretOrKey: 'secret'    // Mongo Secret
 };
