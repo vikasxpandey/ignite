@@ -44,7 +44,54 @@ class CreateProfile extends Component {
     
     render() {
 
-        const { errors } = this.state;
+        const { errors, displaySocialInputs } = this.state;
+
+        let socialInputs;
+
+        if(displaySocialInputs) {
+
+            socialInputs = (
+                <div>
+                    <InputGroup 
+                        placeholder="Twitter Profile URL"
+                        name="twitter"
+                        icon="fa fa-twitter"
+                        value={this.state.twitter}
+                        onChange={this.onChange}
+                        error={errors.twitter}
+                    />
+
+                    <InputGroup 
+                        placeholder="Facebook Page URL"
+                        name="facebook"
+                        icon="fa fa-facebook"
+                        value={this.state.facebook}
+                        onChange={this.onChange}
+                        error={errors.facebook}
+                    />
+
+                    <InputGroup 
+                        placeholder="LinkedIn Profile URL"
+                        name="linkedin"
+                        icon="fa fa-linkedin"
+                        value={this.state.linkedin}
+                        onChange={this.onChange}
+                        error={errors.linkedin}
+                    />
+
+                    <InputGroup 
+                        placeholder="Instagram Profile URL"
+                        name="instagram"
+                        icon="fa fa-instagram"
+                        value={this.state.instagram}
+                        onChange={this.onChange}
+                        error={errors.instagram}
+                    /> 
+
+                </div>
+            );
+
+        }
 
         const options = [
             { label: '*Select Professional Status', value: 0 },
@@ -134,11 +181,18 @@ class CreateProfile extends Component {
                                 <div className="mb-3">
                                     <button onClick={() => this.setState(prevState => ({
                                         displaySocialInputs: !prevState.displaySocialInputs
-                                    }))} className="btn btn-light">
+                                    })
+                                    )} className="btn btn-light">
                                         Add Social Network Links
                                     </button>
                                     <span className="text-muted">Optional</span>
                                 </div>
+                                {socialInputs}
+                                <input 
+                                type="submit"
+                                value="submit"
+                                className="btn btn-info btn-block mt-4"
+                                /> 
                             </form>
                         </div>
                     </div>
