@@ -1,5 +1,5 @@
 # ignite
-Developers community built using Node.js, React.js, MongoDB and Express. (_Brad Traversy's MERN Stack tutorial_)
+Developers community built using Node.js, React.js, MongoDB and Express.
 
 ## Steps to follow:
 1. Run **npm install** in the root folder. This is the server.
